@@ -76,8 +76,14 @@ namespace HttpServer
                 else
                 {
                     //加载静态HTML页面
+                    /*
                     requestFile = Path.Combine(requestFile, "index.html");
                     response = response.FromFile(requestFile);
+                    */
+
+                    //response=response.SetContent ( "<html><body>你好！你是想访问地址："+requestURL+"</body></html>",Encoding.UTF8);
+                    response = response.FromText("<html><body>你好！你是想访问地址：" + requestURL + "</body></html>");
+
                     response.Content_Type = "text/html; charset=UTF-8";
                 }
             }
